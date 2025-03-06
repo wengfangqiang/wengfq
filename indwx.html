@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复制字段</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            word-wrap: break-word;
+        }
+        .text-field {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .copy-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .copy-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-field" id="textField">811080101356758 温州一亩花田科技有限公司</div>
+        <button class="copy-button" onclick="copyTextField()">复制字段</button>
+    </div>
+
+    <script>
+        function copyTextField() {
+            // 获取文本字段
+            const textField = document.getElementById("textField").innerText;
+            
+            // 使用 Clipboard API 复制文本
+            navigator.clipboard.writeText(textField)
+                .then(() => {
+                    alert("字段已复制: " + textField);
+                })
+                .catch((err) => {
+                    alert("复制失败，请手动复制字段。");
+                    console.error("复制失败: ", err);
+                });
+        }
+    </script>
+</body>
+</html>
